@@ -4,6 +4,7 @@ category: test
 title: test
 description: kjdbvewrlbn
 thumbnail: /images/uploads/cat-marshmellows.jpg
-new-category: jhcdvcv
 ---
+youtube CASJFidDGok
+
 This is some tdvwegbewria
