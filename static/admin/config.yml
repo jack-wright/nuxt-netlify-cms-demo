@@ -30,3 +30,35 @@ collections:
       - {label: "SEO Description", name: "description", widget: "text"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "case-study"
+    label: "Case Studies"
+    folder: "content/case-study"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "category/single.html"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+  - name: "pages"
+    label: "Pages"
+    files:
+        - label: "Work"
+          name: "work"
+          file: "site/content/pages/work.json"
+          fields:
+            - label: "Categories"
+              name: "categories"
+              widget: "list"
+              allow_add: true
+              field:
+                - label: "Category"
+                  name: "category"
+                  widget: "string"
