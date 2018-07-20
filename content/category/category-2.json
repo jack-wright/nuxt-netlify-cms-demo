@@ -1,0 +1,9 @@
+{
+  "layout": "category/single.html",
+  "title": "Category 2",
+  "description": "This is category 2",
+  "thumbnail": "/images/uploads/cat-marshmellows.jpg",
+  "case-studies": [
+    {}
+  ]
+}
