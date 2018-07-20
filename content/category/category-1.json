@@ -2,5 +2,11 @@
   "layout": "category/single.html",
   "title": "Category 1",
   "description": "This is the seo description for category 1",
-  "thumbnail": "/images/uploads/cat-cute.jpg"
+  "thumbnail": "/images/uploads/cat-cute.jpg",
+  "case-studies": [
+    {
+      "case-study": "Case study 1"
+    },
+    {}
+  ]
 }
