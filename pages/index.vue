@@ -2,8 +2,8 @@
     <div class="container">
         <h2>Latest posts</h2>
         <ul>
-            <li v-if="posts" v-for="(post, index) in posts" :key="index">
-                <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
+            <li v-if="workAreas" v-for="(workArea, index) in workAreas" :key="index">
+                <nuxt-link :to="workArea.slug">{{ workArea.title }}</nuxt-link>
             </li>
         </ul>
     </div>
@@ -12,12 +12,12 @@
 <script>
 export default {
     computed: {
-        posts() {
-            return this.$store.state.posts.posts
+        workAreas() {
+            return this.$store.state.workAreas.workAreas
         }
     },
     async fetch({ store, params }) {
-        await store.dispatch('posts/getPosts', params.slug)
+        await store.dispatch('workAreas/getWorkAreas', params.slug)
     }
 }
 </script>

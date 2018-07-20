@@ -6,59 +6,36 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - name: "category" # Used in routes, e.g., /admin/collections/blog
-    label: "Category" # Used in the UI
-    folder: "content/category" # The path to the folder where the documents are stored
+  - name: "work-area" # Used in routes, e.g., /admin/collections/blog
+    label: "Area of work" # Used in the UI
+    folder: "content/work-area" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     format: "json"
     fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "category/single.html"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "SEO Description", name: "description", widget: "text"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
-  - name: "post" # Used in routes, e.g., /admin/collections/blog
-    label: "Post" # Used in the UI
-    folder: "content/post" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    format: "json"
-    fields: # The fields for each document, usually in front matter
-      - {label: "Layout", name: "layout", widget: "hidden", default: "single.html"}
-      - {label: "Category", name: "category", widget: "string"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "SEO Description", name: "description", widget: "text"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - name: "case-study"
+  - name: "case-studies"
     label: "Case Studies"
     folder: "content/case-study"
     create: true
     slug: "{{slug}}"
     format: "json"
     fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "category/single.html"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+      - {label: "Layout", name: "layout", widget: "hidden", default: "category/single.html"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Area of work"
+        name: "work-area"
+        collection: "work-area"
+        widget: "relation"
+        valueField: title
+        searchFields: ["title"]
   - name: "pages"
     label: "Pages"
     files:
         - label: "Work"
           name: "work"
-          file: "site/content/pages/work.json"
-          fields:
-            - label: "Categories"
-              name: "categories"
-              widget: "list"
-              allow_add: true
-              field:
-                - label: "Category"
-                  name: "category"
-                  widget: "string"
+          file: "content/pages/work.json"
+            

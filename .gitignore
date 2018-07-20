@@ -16,3 +16,7 @@ dist
 .vagrant
 
 Vagrantfile
+
+static/images/uploads/*-mobile.jpg
+static/images/uploads/*-mobile.png
+static/images/uploads/*.webp

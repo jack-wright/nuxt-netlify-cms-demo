@@ -1,11 +1,11 @@
 export const state = () => ({
-    currentPost: {},
+    currentCaseStudy: {},
     isLoading: true
 })
 
 export const mutations = {
-    setCurrentPost(state, payload) {
-        state.currentPost = payload;
+    setCurrentCaseStudy(state, payload) {
+        state.currentCaseStudy = payload;
     },
     setLoading(state, payload) {
         state.isLoading = payload;
@@ -13,7 +13,7 @@ export const mutations = {
 }
 
 export const actions = {
-    async getPostBySlug({commit}, slug) {
+    async getCaseStudyBySlug({commit}, slug) {
         
     }
 }
