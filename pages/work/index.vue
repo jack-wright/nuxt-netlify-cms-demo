@@ -1,7 +1,11 @@
 <template>
     <div class="container">
-       <h1>HOME</h1>
-       <a href="work">Work</a>
+        <h2>Latest posts</h2>
+        <ul>
+            <li v-if="workAreas" v-for="(workArea, index) in workAreas" :key="index">
+                <nuxt-link :to="workArea.slug">{{ workArea.title }}</nuxt-link>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -13,6 +17,7 @@ export default {
         }
     },
     async fetch({ store, params }) {
+        console.log(params);
         await store.dispatch('workAreas/getWorkAreas', params.slug)
     }
 }
