@@ -42,12 +42,6 @@ module.exports = {
                     loader: 'eslint-loader',
                     exclude: /(node_modules)/
                 });
-                config.module.rules.push({
-                    test: /(\.vue|\.js)$/,
-                    loader: 'babel-loader',
-                    exclude: /node_modules/,
-                    exclude: /.nuxt/
-                });
             }
             config.node = {
                 fs: 'empty'

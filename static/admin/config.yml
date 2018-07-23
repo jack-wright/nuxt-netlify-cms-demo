@@ -38,4 +38,15 @@ collections:
         - label: "Work"
           name: "work"
           file: "content/pages/work.json"
-            
+          fields:
+            - label: "Work Areas"
+              name: "work-areas"
+              widget: "list"
+              fields:
+                - {label: Image, name: image, widget: image}
+                - label: "Selected Work Area"
+                  name: selected-work-area
+                  widget: relation
+                  collection: work-area
+                  searchFields: ["title"]
+                  valueField: "title"
