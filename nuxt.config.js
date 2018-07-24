@@ -1,4 +1,6 @@
 var requireContext = require('require-context');
+const path = require('path');
+const {slugify} = require('./utilities/utilities');
 require('dotenv').config();
 
 module.exports = {
@@ -59,15 +61,19 @@ module.exports = {
                     route: `work/${key.replace('.json', '')}`
                 })),
                 caseContext = requireContext('../../content/case-study', false, /\.json$/),
-                caseStudies = caseContext.keys().map(key => ({
+                caseStudies = caseContext.keys().map(key => {
+                    let caseStudy = require(path.resolve(`content/case-study/${key}`));
+                    let workArea = slugify(caseStudy['work-area']);
                     /**
                      * We need to make 'area-1' dynamically generated rather than statically added
                      */
-                    payload: {
-                        slug: `work/area-1/${key.replace('.json', '')}`
-                    },
-                    route: `work/area-1/${key.replace('.json', '')}`
-                }));
+                    return {
+                        payload: {
+                            slug: `work/${workArea}/${key.replace('.json', '')}`
+                        },
+                        route: `work/${workArea}/${key.replace('.json', '')}`
+                    }
+                });
 
             return routes.concat(areas, caseStudies);
         }
