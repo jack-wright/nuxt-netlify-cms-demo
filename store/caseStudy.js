@@ -14,6 +14,9 @@ export const mutations = {
 
 export const actions = {
     async getCaseStudyBySlug({commit}, slug) {
-        
+        console.log(slug);
+        let postData = await import('../content/case-study/' + slug + '.json');
+        commit('setCurrentCaseStudy', postData);
+        commit('setLoading', false);
     }
 }

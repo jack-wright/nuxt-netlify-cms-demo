@@ -16,12 +16,13 @@
     "dependencies": {
         "@nuxtjs/dotenv": "^1.1.1",
         "@nuxtjs/markdownit": "^1.2.1",
+        "axios": "^0.18.0",
         "gotrue-js": "^0.9.22",
         "module": "^1.2.5",
         "netlify-cms": "^1.9.3",
         "nuxt": "^1.0.0",
-        "sharp": "^0.20.5",
-        "require-context": "^1.1.0"
+        "require-context": "^1.1.0",
+        "sharp": "^0.20.5"
     },
     "devDependencies": {
         "babel-eslint": "^8.2.1",

@@ -50,14 +50,26 @@ module.exports = {
     },
     generate: {
         routes: () => {
-            const context = requireContext('../../content/work-area', false, /\.json$/)
-            return context.keys().map(key => ({
-                payload: {
-                    ...context(key),
-                    slug: `${key.replace('.json', '').replace('./', '')}`
-                },
-                route: `${key.replace('.json', '').replace('./', '')}`
-            }));
+            let routes = [],
+                areaContext = requireContext('../../content/work-area', false, /\.json$/),
+                areas = areaContext.keys().map(key => ({
+                    payload: {
+                        slug: `work/${key.replace('.json', '')}`
+                    },
+                    route: `work/${key.replace('.json', '')}`
+                })),
+                caseContext = requireContext('../../content/case-study', false, /\.json$/),
+                caseStudies = caseContext.keys().map(key => ({
+                    /**
+                     * We need to make 'area-1' dynamically generated rather than statically added
+                     */
+                    payload: {
+                        slug: `work/area-1/${key.replace('.json', '')}`
+                    },
+                    route: `work/area-1/${key.replace('.json', '')}`
+                }));
+
+            return routes.concat(areas, caseStudies);
         }
     }
 }
