@@ -1,3 +1,5 @@
+import { slugify } from '../utilities/utilities'
+
 export const state = () => ({
     currentCaseStudy: {},
     isLoading: true

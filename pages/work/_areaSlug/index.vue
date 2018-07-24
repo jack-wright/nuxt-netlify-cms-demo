@@ -7,6 +7,11 @@
             <div class="single-work-area__content">
                 {{ currentWorkArea.description }}
             </div>
+            <ul>
+                <li v-for="(caseStudy, key) in caseStudies" :key={key} className="">
+                    {{caseStudy}}
+                </li>
+            </ul>
         </div>
         <p v-else class="single-work-area__loading">
             Loading
@@ -20,13 +25,17 @@ export default {
         currentWorkArea() {
             return this.$store.state.workArea.currentWorkArea
         },
+        caseStudies() {
+            return this.$store.state.caseStudies.collection
+        },
         isLoading() {
-            return this.$store.state.workArea.isLoading
+            return this.$store.state.caseStudies.isLoading
         }
     },
 
     async fetch({ store, params }) {
         await store.dispatch('workArea/getWorkAreaBySlug', params.areaSlug)
+        await store.dispatch('caseStudies/getByWorkArea', params.areaSlug)
     }
 }
 </script>
