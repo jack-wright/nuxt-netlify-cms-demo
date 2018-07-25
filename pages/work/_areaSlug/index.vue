@@ -10,7 +10,7 @@
             <ul>
                 <li v-for="(caseStudy, key) in caseStudies" :key={key} className="">
                     <a :href="caseStudy.slug">{{caseStudy.title}}</a>
-                    <p>{{ caseStudy.body }}</p>
+                    <div v-html="$md.render(caseStudy.body)"></div>
                 </li>
             </ul>
         </div>

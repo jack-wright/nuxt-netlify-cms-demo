@@ -5,7 +5,7 @@
                 {{ currentCaseStudy.title }}
             </h1>
             <div class="single-case-study__content">
-                {{ currentCaseStudy.body }}
+                <div v-html="$md.render(currentCaseStudy.body)"></div>
                 <p>The work area for this category is: </p>
             </div>
         </div>
