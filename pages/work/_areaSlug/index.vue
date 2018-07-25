@@ -9,7 +9,8 @@
             </div>
             <ul>
                 <li v-for="(caseStudy, key) in caseStudies" :key={key} className="">
-                    {{caseStudy}}
+                    <a :href="caseStudy.slug">{{caseStudy.title}}</a>
+                    <p>{{ caseStudy.body }}</p>
                 </li>
             </ul>
         </div>
@@ -20,6 +21,8 @@
 </template>
 
 <script>
+import { slugify } from '../../../utilities/utilities';
+
 export default {
     computed: {
         currentWorkArea() {

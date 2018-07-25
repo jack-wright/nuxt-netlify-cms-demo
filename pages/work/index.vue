@@ -3,7 +3,7 @@
         <h2>Latest posts</h2>
         <ul>
             <li v-if="workAreas" v-for="(workArea, index) in workAreas" :key="index">
-                <nuxt-link :to="'/work/' + workArea.slug">{{ workArea.title }}</nuxt-link>
+                <a :href="workArea.slug">{{ workArea.title }}</a>
             </li>
         </ul>
     </div>
