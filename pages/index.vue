@@ -8,7 +8,8 @@
             muted
             loop
             webkit-playsinline
-            playsinline>
+            playsinline
+            style="width: 100%;">
         </video>
     </div>
 </template>
